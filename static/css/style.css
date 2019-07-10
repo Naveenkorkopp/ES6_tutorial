@@ -1,0 +1,50 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 8px;
+  }
+  th {
+      font-size: 18px;
+      background: #d2d0d0;
+        text-align: center;
+  }
+  
+  .sayDelete {
+      float: right;
+      color: red;
+      border: 2px solid;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  .sayCompleted {
+      float: right;
+      color: green;
+      border: 2px solid;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  .myForm {
+    width: 100%;
+    padding: 10px;
+    size: 10px;
+  }
+  
+  .myForm input {
+    width: 60%;
+    height: 26px;
+    border: 2px solid green;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .myForm button {
+      background: #5baf5b;
+      font-size: 15px;
+      border: 1px solid black;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+  }
+  
