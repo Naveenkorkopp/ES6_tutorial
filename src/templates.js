@@ -1,16 +1,18 @@
 
 export function app_template(todoapp) {
     return  (`
+        <div class="appTitle">EVERNOTE</div>
         <div class="myForm">
-            <input  type='text' name='addText'>
+            <input  type='text' name='addText' placeholder="add note here...">
             <button class='addNote'>ADD NOTE</button>
         </div>
-        <br><br>
         <div>
             <table id="toDoListTable">
             <tr>
                 <th>To Do List</th>
-                <th>Status</th>
+                <th>In-progress</th>
+                <th>Completed</th>
+                <th>Delete</th>
             </tr>
                 ${todoapp.listTodos()}
             </table>
@@ -22,16 +24,32 @@ export function todolist_template(storage) {
     return (`
         ${storage.map((todo)  => 
         `<tr>
-        <td>
-            <p>${todo.todo}</p>
-            <button class="sayCompleted" data-key="${todo.id}">complete</button>
-            <button class="sayDelete" data-key="${todo.id}">delete</button>
-        </td>
-        ${
-            todo.isCompleted ? 
-            '<td style="background:#3acc3a">Completed</td>': 
-            '<td style="background:yellow">Pending</td>'
-        }
+            <td>
+                <p class="note_todo">${todo.todo}</p>
+                ${ todo.isPending || todo.isCompleted ? 
+                        ''
+                    : `<div class="status_dragtarget" id="${todo.id}" draggable="true" data-key="${todo.id}">DRAG</div>`
+                }
+            </td>
+            <td id=${todo.id} class="status_droptarget">
+                ${ todo.isPending ? 
+                    `<div class="status_dragtarget_yellow" id="${todo.id}" draggable="true" data-key="${todo.id}">PENDING</div>`
+                    : ''
+                }
+            </td>
+            <td id=${todo.id} class="status_completetarget">
+                ${ todo.isCompleted ? 
+                    `<div class="status_dragtarget_green" id="${todo.id}" data-key="${todo.id}">COMPLTED</div>`
+                    : ''
+                }
+            </td>
+            <td id="${todo.id}" class="dustbin_col">
+                ${
+                    todo.isCompleted ?
+                    '':
+                    `<i id="${todo.id}" class="fa fa-trash dustbin" aria-hidden="true"></i>`
+                }
+            </td>
         </tr>
         `).join(' ')
         }

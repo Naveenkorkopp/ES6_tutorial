@@ -1,50 +1,102 @@
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 100%;
-    padding: 8px;
+  border: 5px solid #808080;
+  border-collapse: collapse;
+  padding: 10px;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 30px;
   }
-  th {
-      font-size: 18px;
-      background: #d2d0d0;
-        text-align: center;
-  }
+th {
+    font-size: 18px;
+    background: #5baf5b;
+    text-align: center;
+    color: white;
+}
   
-  .sayDelete {
-      float: right;
-      color: red;
-      border: 2px solid;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-  
-  .sayCompleted {
-      float: right;
-      color: green;
-      border: 2px solid;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-  
-  .myForm {
-    width: 100%;
-    padding: 10px;
-    size: 10px;
-  }
-  
-  .myForm input {
-    width: 60%;
-    height: 26px;
-    border: 2px solid green;
+#delete_drag {
+    float: right;
+    color: red;
+    border: 2px solid;
     border-radius: 5px;
-    font-size: 15px;
-  }
-  .myForm button {
-      background: #5baf5b;
-      font-size: 15px;
-      border: 1px solid black;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-  }
-  
+    cursor: pointer;
+}
+
+#pending_drag {
+    float: right;
+    color: green;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.myForm { 
+  text-align: center;
+  padding: 35px;
+}
+.appTitle {
+  text-align: center;
+  padding: 30px;
+  font-size: 45px;
+  background: #5baf5b;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  border-bottom: 5px solid gray;
+  color: white;
+}
+.myForm input {
+  width: 60%;
+  height: 35px;
+  border: 2px solid green;
+  border-radius: 10px;
+  font-size: 20px;
+  outline: none;
+  text-indent: 10px;
+  color: green;
+  font-family: monospace;
+}
+.myForm button {
+  background: #5baf5b;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+  cursor: crosshair;
+  color: white;
+  padding: 10px;
+}
+
+.dustbin_col{
+  font-size: 35px;
+    text-align: center;
+}
+.status_dragtarget {
+  float: right;
+  font-size: 25px;
+  padding: 10px;
+  background: #26e626;
+  border-radius: 5px;
+  cursor: copy;
+}
+.status_dragtarget_yellow {
+  float: none;
+  font-size: 25px;
+  padding: 10px;
+  background: #f5f200;
+  border-radius: 5px;
+  cursor: copy;
+  text-align: center;
+}
+.status_dragtarget_green {
+  background: #5baf5b;
+  border: 2px solid black;
+  padding: 2px;
+}
+
+div#toDoApp {
+  margin: 10%;
+  /* margin: 0 auto; */
+  border: 5px solid gray;
+  border-radius: 45px;
+}
+.note_todo{
+  font-size: 20px;
+}

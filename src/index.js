@@ -4,7 +4,7 @@ import '../static/css/style.css';
 
 var storage = JSON.parse(localStorage.getItem("todolist")) || [];
 
-var key = 0;
+var key = storage.length > 0 ? storage[storage.length-1].id + 1 : 0;
 
 var todoapp = {
     startapp : function(){
@@ -29,7 +29,8 @@ var todoapp = {
         storage.push({
             'id': key++,
             'todo': value,
-            'isCompleted': false
+            'isCompleted': false,
+            'isPending': false
         });
 
         todoapp.updateApp(); // Update the APP
@@ -58,17 +59,48 @@ var todoapp = {
         todoapp.updateApp(); // Update the APP
 
     },
+    pendingTodo: function(id, flag) {
+        storage.map((todo)=> {
+          if (todo.id == id) {
+              todo.isPending = flag;
+          }
+      });
+
+      todoapp.updateApp(); // Update the APP
+    },
     eventsHandlers : function() {
         document.body.addEventListener('click', function(e){
             if(e.target.className === 'addNote') {
                 todoapp.addToDo();
-            }else if(e.target.className === 'sayCompleted') {
-                const key = e.target.getAttribute('data-key');
-                todoapp.completeTodo(key);
-            }else if(e.target.className === 'sayDelete') {
-                const key = e.target.getAttribute('data-key');
-                todoapp.deleteToDo(key);
             }
+        }, true);
+        document.body.addEventListener("dragstart", function(event) {
+          event.dataTransfer.setData("Text", event.target.id);
+        }, true);
+        document.body.addEventListener("dragover", function(event) {
+          event.preventDefault();
+        }, true);
+        document.body.addEventListener("drop", function(event) {
+          event.preventDefault();
+          var data = event.dataTransfer.getData("Text");
+          var targeted_element = document.getElementById(data);
+
+          if ( event.target.className == 'status_droptarget' && event.target.id == data) {
+              event.target.appendChild(targeted_element);
+              targeted_element.innerHTML = "PENDING"
+              targeted_element.className += " status_dragtarget_yellow";
+              todoapp.pendingTodo(data, true);
+          } else if(event.target.className == 'status_completetarget' && event.target.id == data) {
+              event.target.appendChild(targeted_element);
+              targeted_element.innerHTML = "COMPLTED"
+              targeted_element.className += " status_dragtarget_green";
+              todoapp.pendingTodo(data, false);
+              todoapp.completeTodo(data);
+          } else if(event.target.className == 'fa fa-trash dustbin' && event.target.id == data) {
+              todoapp.pendingTodo(data, false);
+              event.target.appendChild(targeted_element);
+              todoapp.deleteToDo(data)
+          }
         }, true);
     }
 }
