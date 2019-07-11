@@ -43,7 +43,7 @@ var todoapp = {
 
         data.map((todo)=> {
             if (todo.id == id) {
-                storage.pop(todo)
+                storage.splice(storage.indexOf(todo), 1);
             }
         });
 
@@ -69,21 +69,31 @@ var todoapp = {
       todoapp.updateApp(); // Update the APP
     },
     eventsHandlers : function() {
+      // When user add the note
         document.body.addEventListener('click', function(e){
             if(e.target.className === 'addNote') {
                 todoapp.addToDo();
             }
         }, true);
+        // When user hit enter after adding text
+        document.body.addEventListener("keyup", function(event) {
+          if (event.target.name == 'addText' &&  event.key === "Enter") {
+              document.getElementsByClassName('addNote')[0].click();
+            }
+        });
+        // When user start dragging object
         document.body.addEventListener("dragstart", function(event) {
           event.dataTransfer.setData("Text", event.target.id);
         }, true);
+        // When user are in midway of dragging
         document.body.addEventListener("dragover", function(event) {
           event.preventDefault();
         }, true);
+        // when user drop the object
         document.body.addEventListener("drop", function(event) {
 
           event.preventDefault();
-debugger
+
           var data = event.dataTransfer.getData("Text");
           var targeted_element = document.getElementById(data);
 
@@ -99,11 +109,9 @@ debugger
               todoapp.pendingTodo(data, false); // Calling the logic to remove pending
               todoapp.completeTodo(data); // Calling the logic to make completed
           } else if(['dustbin_col', 'fa fa-trash'].includes(event.target.className) && event.target.id == data) {
-              todoapp.pendingTodo(data, false); // Calling the logic calling the logic to remove pending
               event.target.appendChild(targeted_element);
               todoapp.deleteToDo(data) // Calling the logic to delete
           }
-
         }, true);
     }
 }
