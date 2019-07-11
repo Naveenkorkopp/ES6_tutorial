@@ -83,7 +83,7 @@ var todoapp = {
         document.body.addEventListener("drop", function(event) {
 
           event.preventDefault();
-
+debugger
           var data = event.dataTransfer.getData("Text");
           var targeted_element = document.getElementById(data);
 
@@ -98,7 +98,7 @@ var todoapp = {
               targeted_element.className += " status_dragtarget_green";
               todoapp.pendingTodo(data, false); // Calling the logic to remove pending
               todoapp.completeTodo(data); // Calling the logic to make completed
-          } else if(event.target.className == 'fa fa-trash dustbin' && event.target.id == data) {
+          } else if(['dustbin_col', 'fa fa-trash'].includes(event.target.className) && event.target.id == data) {
               todoapp.pendingTodo(data, false); // Calling the logic calling the logic to remove pending
               event.target.appendChild(targeted_element);
               todoapp.deleteToDo(data) // Calling the logic to delete

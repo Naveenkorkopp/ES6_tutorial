@@ -47,7 +47,7 @@ export function todolist_template(storage) {
                 ${
                     todo.isCompleted ?
                     '':
-                    `<i id="${todo.id}" class="fa fa-trash dustbin" aria-hidden="true"></i>`
+                    `<i id="${todo.id}" class="fa fa-trash" aria-hidden="true"></i>`
                 }
             </td>
         </tr>
