@@ -75,6 +75,12 @@ th {
   background: #26e626;
   border-radius: 5px;
   cursor: copy;
+  border-right: 35px solid transparent;
+  border-top-right-radius: 200%;
+  border-bottom-right-radius: 200%;
+  border-left: 2px solid gray;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
 }
 .status_dragtarget_yellow {
   float: none;
@@ -84,6 +90,7 @@ th {
   border-radius: 5px;
   cursor: copy;
   text-align: center;
+  border: 2px solid gray;
 }
 .status_dragtarget_green {
   background: #5baf5b;

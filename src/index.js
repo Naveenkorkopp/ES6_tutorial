@@ -81,7 +81,9 @@ var todoapp = {
           event.preventDefault();
         }, true);
         document.body.addEventListener("drop", function(event) {
+
           event.preventDefault();
+
           var data = event.dataTransfer.getData("Text");
           var targeted_element = document.getElementById(data);
 
@@ -89,20 +91,21 @@ var todoapp = {
               event.target.appendChild(targeted_element);
               targeted_element.innerHTML = "PENDING"
               targeted_element.className += " status_dragtarget_yellow";
-              todoapp.pendingTodo(data, true);
+              todoapp.pendingTodo(data, true); // Calling the logic to make pending
           } else if(event.target.className == 'status_completetarget' && event.target.id == data) {
               event.target.appendChild(targeted_element);
               targeted_element.innerHTML = "COMPLTED"
               targeted_element.className += " status_dragtarget_green";
-              todoapp.pendingTodo(data, false);
-              todoapp.completeTodo(data);
+              todoapp.pendingTodo(data, false); // Calling the logic to remove pending
+              todoapp.completeTodo(data); // Calling the logic to make completed
           } else if(event.target.className == 'fa fa-trash dustbin' && event.target.id == data) {
-              todoapp.pendingTodo(data, false);
+              todoapp.pendingTodo(data, false); // Calling the logic calling the logic to remove pending
               event.target.appendChild(targeted_element);
-              todoapp.deleteToDo(data)
+              todoapp.deleteToDo(data) // Calling the logic to delete
           }
+
         }, true);
     }
 }
 
-todoapp.startapp();
+todoapp.startapp(); // Starting the App
