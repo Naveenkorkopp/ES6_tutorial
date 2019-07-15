@@ -1,5 +1,5 @@
-import {app_template, todolist_template} from './templates';
-import '../static/css/style.css';
+import {app_template, todolist_template} from './templates_table';
+import '../static/css/style_table.css';
 
 
 var storage = JSON.parse(localStorage.getItem("todolist")) || [];

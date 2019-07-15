@@ -1,0 +1,186 @@
+body{
+    background: #e2e2e2;
+}
+div#toDoApp {
+    padding: 5%;
+}
+.appTitle {
+    font-size: 65px !important;
+    font-family: fantasy;
+    text-align: center;
+    color: #562085;
+    font-weight: bolder;
+    /* box-shadow: 0px 0px 20px 0px black; */
+    /* background: #fb7d2a; */
+    text-shadow: 7px 6px 9px #8d8d8d;
+}
+.myForm {
+    /* text-align: center; */
+    text-align: center;
+    margin-top: 5%;
+}
+input[type="text"] {
+    font-size: 30px;
+    border: 3px solid #562085;
+    border-radius: 5px;
+    text-indent: 5px;
+    box-shadow: 10px 6px 15px 1px grey;
+    color: #fb7d2a;
+    font-family: monospace;
+}
+button.addNote {
+    font-size: 20px;
+    font-family: fantasy;
+    border: 2px solid #562085;
+    border-radius: 5px;
+    background: #fb7d2a;
+    color: #562085;
+    font-weight: bold;
+    box-shadow: 2px 3px 7px 2px #0a0a0a;
+    cursor: pointer;
+}
+div#toDoListSticks {
+    display: flex;
+    padding: 5%;
+}
+.initialised, .pending, .completed {
+    width: calc(100% / 3);
+}
+.sticky {
+    background: #562185;
+    border-radius: 2.5rem;
+    padding: 1.5rem;
+    box-shadow: -5px -3px 17px 0px black;
+    transition: 0.2s;
+    color: #fb7d2a;
+    font-size: 30px;
+    display: flex;
+    cursor: copy;
+}
+
+.sticky:not(:first-child) {
+    margin-top: -3rem;
+  }
+
+.sticky:not(:last-child):hover,
+.sticky:not(:last-child):focus-within {
+transform: translateY(-3rem);
+}
+
+.message {
+    word-break: break-all;
+}
+.action {
+    background: #cccccc;
+    /* margin: 10%; */
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 30px;
+    overflow-x: scroll;
+    margin-top: 5%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px 0px black;
+}
+#scroller {
+    background: #fb7d2a;
+    width: 15%;
+    height: 30px;
+    box-shadow: 0px -1px 20px 18px #464242;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 15px;
+    color: #562085;
+    font-weight: bold;
+}
+
+
+/* DUSTBIN */
+section {
+    float: right;
+}
+
+.trash {
+	background:#562085;
+	width: 66px;
+	height: 80px;
+	display: inline-block;
+	margin:0 auto;
+	
+	position: relative;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+.trash:after {
+	position: absolute;
+	left: -99px;
+	right: 0;
+	bottom: -50px;
+	width: 300px;
+}
+.trash span {
+	position: absolute;
+	height: 12px;
+	background: #562085;
+	top: -19px;
+	left: -10px;
+	right: -10px;
+	
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transform: rotate(0deg);
+	transition: transform 250ms;
+	transform-origin: 19% 100%;
+}
+.trash span:after {
+	content: '';
+	position: absolute;
+	width: 27px;
+	height: 7px;
+	background: #562085;
+	top: -10px;
+	
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transform: rotate(0deg);
+	transition: transform 250ms;
+	transform-origin: 19% 100%;
+	left: 27px;
+}
+
+
+.trash i {
+	position:relative;
+	width: 5px;
+	height:50px;
+	background:#fff;
+	display:block;
+	margin:14px auto;
+	border-radius: 5px;
+}
+.trash i:after {
+	content: '';
+	width: 5px;
+	height: 50px;
+	background: #fff;
+	position: absolute;
+	left: -18px;
+	border-radius: 5px;
+}
+.trash i:before {
+	content: '';
+	width: 5px;
+	height: 50px;
+	background: #fff;
+	position: absolute;
+	right: -18px;
+	border-radius: 5px;
+}
+
+.trash:hover span {
+	transform: rotate(-45deg);
+	transition: transform 250ms;
+}
