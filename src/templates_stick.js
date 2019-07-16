@@ -15,7 +15,7 @@ export function app_template(list_initialised, list_pending, list_completed) {
             </section>
         </div>
         <div class="action">
-            <div id="scroller">START DRAGGING..</div>
+            <div id="scroller"></div>
         </div>
         <div id="toDoListSticks">
             <div class="initialised">${list_initialised()}</div>

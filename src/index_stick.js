@@ -157,7 +157,7 @@ var myNotePad = (function() {
             } else if (event.target.className == 'trash') {
                 scroller.innerText = 'DELETING...';
                 scroller.style.marginLeft = '70%';
-                action.style.background = '#ef0707';
+                action.style.background = '#ea1515';
             }
 
         }, true);
