@@ -1,6 +1,7 @@
 import { ToDo } from './index';
+import { config } from './config';
 
-export function app_template(list_initialised, list_pending, list_completed) {
+export function app_template(list_initialised, list_pending, list_completed, list_columns) {
 
     return (`
         <div class="appTitle">Sticky Notes</div>
@@ -18,10 +19,21 @@ export function app_template(list_initialised, list_pending, list_completed) {
             <div id="scroller"></div>
         </div>
         <div id="toDoListSticks">
-            <div class="initialised">${list_initialised()}</div>
-            <div class="pending">${list_pending()}</div>
-            <div class="completed">${list_completed()}</div>
+            ${Array(config.columns).fill().map( i => `<div class="initialised">${list_columns()}</div>`
+                ).join(' ')
+            }
         </div>
+    `);
+}
+
+export function listColumns(storage) {
+    return (`
+        ${storage.map((todo)=> `
+            <div class="sticky ${todo.id}" id="${todo.id}"  draggable="true">
+                <p class="message">${todo._note}</p>
+            </div>
+        `).join(' ')
+    }
     `);
 }
 

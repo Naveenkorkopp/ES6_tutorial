@@ -1,5 +1,5 @@
 import { myStorage } from "./storage";
-import { app_template, listInitialised, listPending, listCompleted } from './templates';
+import { app_template, listInitialised, listPending, listCompleted, listColumns } from './templates';
 import '../static/css/style.css';
 
 
@@ -80,6 +80,9 @@ var myNotePad = (function() {
     function list_completed() {
         return listCompleted(storage);
     }
+    function list_columns() {
+        return listColumns(storage);
+    }
 
     function update_status_todo(id, status) {
         storage.map((todo) => {
@@ -107,7 +110,7 @@ var myNotePad = (function() {
     function updateApp() {
         const app = document.querySelector("#toDoApp");
 
-        app.innerHTML = app_template(list_initialised, list_pending, list_completed);
+        app.innerHTML = app_template(list_initialised, list_pending, list_completed, list_columns);
 
         // Update storage
         myStorage.updateStorage(storage);
