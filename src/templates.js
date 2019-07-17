@@ -1,4 +1,4 @@
-import { ToDo } from './index_stick';
+import { ToDo } from './index';
 
 export function app_template(list_initialised, list_pending, list_completed) {
 

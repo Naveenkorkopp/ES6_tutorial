@@ -1,6 +1,6 @@
 import { myStorage } from "./storage";
-import { app_template, listInitialised, listPending, listCompleted } from './templates_stick';
-import '../static/css/style_stick.css';
+import { app_template, listInitialised, listPending, listCompleted } from './templates';
+import '../static/css/style.css';
 
 
 export class ToDo {

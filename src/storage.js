@@ -1,4 +1,4 @@
-import { ToDo } from './index_stick';
+import { ToDo } from './index';
 
 export var myStorage = (function(){
     
