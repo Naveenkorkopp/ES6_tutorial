@@ -30,8 +30,8 @@ input[type="text"] {
     outline: none;
 }
 button.addNote {
-    font-size: 20px;
-    font-family: fantasy;
+    font-size: 30px;
+    font-family: monospace;
     border: 2px solid #562085;
     border-radius: 5px;
     background: #fb7d2a;
@@ -39,6 +39,10 @@ button.addNote {
     font-weight: bold;
     box-shadow: 2px 3px 7px 2px #0a0a0a;
     cursor: pointer;
+    margin-left: 4%;
+}
+button.addNote:hover {
+    background: #bfbfbf
 }
 div#toDoListSticks {
     display: flex;
