@@ -1,0 +1,25 @@
+body{
+  background: #e2e2e2;
+}
+.app {
+  padding: 5%;
+}
+.appTitle{
+  text-align: center;
+}
+.myForm {
+  display: flex;
+  text-align: center;
+}
+.todo_list {
+  display: flex;
+  margin-top: 10px;
+}
+.draggable{
+  width: 30%;
+  background: gray;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
